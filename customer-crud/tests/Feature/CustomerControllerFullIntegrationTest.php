@@ -14,7 +14,7 @@ class CustomerControllerFullIntegrationTest extends TestCase
     /**
      * Inside the Feature folder, the Laravel framework is loaded allowing testing
      * of integrated components.  This allows end-to-end testing.
-     * 
+     *
      * These type of tests are imported by `use Tests\TestCase`
      */
     public function test_get_all_endpoint_is_mapped_correctly(): void

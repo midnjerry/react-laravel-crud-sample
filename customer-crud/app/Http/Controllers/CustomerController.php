@@ -21,12 +21,13 @@ class CustomerController extends Controller
         // `response()` is the Laravel utility function that packages responses
         // If you use this, you cannot execute PHPUnit tests with pure PHP logic
         // This requires integration tests which could increase time-to-test
-        
+
         // return response()->json($this->customerService->getAll());
 
         // Instead we can use JsonResponse which `response()` uses under the hood.
         // This seems hacky.
         $customers = $this->customerService->getAll();
+
         return new JsonResponse($customers, 200);
     }
 

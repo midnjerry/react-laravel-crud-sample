@@ -12,7 +12,7 @@ class CustomerControllerIntegrationWithMockServiceTest extends TestCase
      * Inside the Feature folder, the Laravel framework is loaded allowing testing
      * of integrated components.  This includes use of a Laravel-based mocking implementation
      * and also allows very easy http calls to the controller.
-     * 
+     *
      * These type of tests are imported by `use Tests\TestCase`
      */
     public function test_get_all_endpoint_is_mapped_correctly(): void
