@@ -4,6 +4,7 @@ use App\Http\Controllers\CustomerController;
 use App\Models\Customer;
 use App\Services\CustomerService;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 // This TestCase is from PHPUnit - PURE PHP
 class CustomerControllerTest extends TestCase
@@ -28,5 +29,8 @@ class CustomerControllerTest extends TestCase
         $controller = new CustomerController($serviceMock);
         $response = $controller->getAll();
 
+        // Verify that the response is a JsonResponse with the expected data
+        $this->assertInstanceOf(JsonResponse::class, $response);
+        $this->assertEquals(json_encode($expectedCustomers), $response->getContent());
     }
 }
