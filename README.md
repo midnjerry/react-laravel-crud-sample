@@ -10,3 +10,10 @@ This project represents an Admin Panel (written in React) that accesses a Custom
 * `PATCH api/customers/{customerId}`
 * `DELETE api/customers/{customerId}`
 
+## How To Run
+
+### Frontend
+
+### Backend
+1. `cd customer-crud`
+2. `composer run dev`
