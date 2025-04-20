@@ -6,7 +6,7 @@ use App\Services\CustomerService;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-// This TestCase is from PHPUnit - PURE PHP
+// This TestCase is from PHPUnit - PURE PHP unit test
 class CustomerControllerTest extends TestCase
 {
     public function test_get_all_returns_json_response_with_customers(): void

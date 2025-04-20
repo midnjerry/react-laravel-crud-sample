@@ -6,6 +6,9 @@ use App\Models\Customer;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
+/**
+ * End-to-end Test example
+ */
 class CustomerControllerFullIntegrationTest extends TestCase
 {
     // resets database before every test

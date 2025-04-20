@@ -6,6 +6,9 @@ use App\Models\Customer;
 use App\Services\CustomerService;
 use Tests\TestCase;
 
+/**
+ * Test written using Laravel framework but using a mock dependency
+ */
 class CustomerControllerIntegrationWithMockServiceTest extends TestCase
 {
     /**
