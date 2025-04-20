@@ -2,21 +2,22 @@
 
 namespace Tests\Feature;
 
-use App\Services\CustomerService;
 use App\Models\Customer;
-use Mockery\MockInterface;
+use App\Services\CustomerService;
 use Tests\TestCase;
 
-class CustomerControllerIntegrationTest extends TestCase
+class CustomerControllerIntegrationWithMockServiceTest extends TestCase
 {
     /**
      * Inside the Feature folder, the Laravel framework is loaded allowing testing
      * of integrated components.  This includes use of a Laravel-based mocking implementation
      * and also allows very easy http calls to the controller.
+     * 
+     * These type of tests are imported by `use Tests\TestCase`
      */
     public function test_get_all_endpoint_is_mapped_correctly(): void
     {
-        
+
         $expectedCustomers = collect([
             new Customer([
                 'id' => 1,
@@ -44,9 +45,9 @@ class CustomerControllerIntegrationTest extends TestCase
         // dd($response->json());
 
         $response->assertStatus(200)
-                 ->assertJsonCount(2)
-                 ->assertJsonFragment(['first_name' => 'Alice'])
-                 ->assertJsonFragment(['first_name' => 'John']);
-       
+            ->assertJsonCount(2)
+            ->assertJsonFragment(['first_name' => 'Alice'])
+            ->assertJsonFragment(['first_name' => 'John']);
+
     }
 }

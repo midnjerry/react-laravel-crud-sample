@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Services\CustomerService;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class CustomerController extends Controller
 {
@@ -15,13 +16,24 @@ class CustomerController extends Controller
         $this->customerService = $service;
     }
 
-    public function index()
+    public function getAll()
     {
-        return response()->json($this->customerService->getAll());
+        // `response()` is the Laravel utility function that packages responses
+        // If you use this, you cannot execute PHPUnit tests with pure PHP logic
+        // This requires integration tests which could increase time-to-test
+        
+        // return response()->json($this->customerService->getAll());
+
+        // Instead we can use JsonResponse which `response()` uses under the hood.
+        // This seems hacky.
+        $customers = $this->customerService->getAll();
+        return new JsonResponse($customers, 200);
     }
 
     public function getById(Customer $customer)
     {
+        // "Laravel way" of returning an object
+        // This makes this method incompatible with pure PHP unit tests.
         return response()->json($this->customerService->getById($customer));
     }
 
